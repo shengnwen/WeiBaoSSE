@@ -1,5 +1,8 @@
 package com.example.AccountActivities;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
@@ -16,16 +19,14 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-//1.��邮箱���定�������ok
-//2.��邮箱解�����定�������ok
-//3.完�����箱��次��入��能 ok
-//4.��空�����完�����箱输入��������(�����待续)
+
 
 public class boundEmailActivity extends Activity {
 	private Button saveEditButton;
@@ -34,6 +35,10 @@ public class boundEmailActivity extends Activity {
 	private EditText emailEditText;
 
 	private Intent backToAccountMenuIntent;
+	
+	
+	
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,18 @@ public class boundEmailActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onResume();
 		setInfo();
+
+	}
+	
+	//checkEmailFormat检查输入的邮箱string是否符合邮箱的格式
+	Boolean checkEmailFormat(String emailString){
+		Pattern emailPattern = Patterns.EMAIL_ADDRESS;
+		Matcher emailMatcher = emailPattern.matcher(emailString);
+		if(emailMatcher.matches()){
+			return true;
+		}else{
+			return false;
+		}
 
 	}
 
@@ -100,6 +117,17 @@ public class boundEmailActivity extends Activity {
 //					PersonModel.email = emailEditText.getText().toString()
 //							.trim();
 					// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+					if(!checkEmailFormat(emailEditText.getText().toString().trim())){
+						//输入的邮件不合格
+						Context context = getApplicationContext();
+						CharSequence text = "邮件格式不合格";
+						int duration = Toast.LENGTH_SHORT;
+						Toast toast = Toast.makeText(context, text, duration);
+						toast.show();
+						startActivity(backToAccountMenuIntent);
+						return;
+						
+					}
 					new SendBoundAccountEmail().execute(emailEditText.getText().toString()
 							.trim());
 					
@@ -114,9 +142,22 @@ public class boundEmailActivity extends Activity {
 						sendEmailOrDisboundButton.setVisibility(Button.GONE);
 						saveEditButton.setText("保存");
 					} else {
+						// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+						if(!checkEmailFormat(emailEditText.getText().toString().trim())){
+							//输入的邮件不合格
+							Context context = getApplicationContext();
+							CharSequence text = "邮件格式不合格";
+							int duration = Toast.LENGTH_SHORT;
+							Toast toast = Toast.makeText(context, text, duration);
+							toast.show();
+							startActivity(backToAccountMenuIntent);
+							return;
+							
+						}
 						PersonModel.email = emailEditText.getText().toString()
 								.trim();
 						// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+						
 						new SendBoundAccountEmail().execute(PersonModel.email);
 						startActivity(backToAccountMenuIntent);
 					}
