@@ -284,7 +284,14 @@ public class EditMyImageActivity extends Activity {
 	private void handleBigCameraPhoto() {
 		if (mCurrentPhotoPathString != null) {
 			galleryAddPic();
+			
 			new uploadLocalImage().execute(mCurrentPhotoPathString);
+			Context context = getApplicationContext();
+			CharSequence text;
+			text = "头像上传中，请耐心等待⋯⋯";
+			int duration = Toast.LENGTH_SHORT;
+			Toast toast = Toast.makeText(context, text, duration);
+			toast.show();
 			// mCurrentPhotoPathString = null;
 		}
 	}
@@ -301,7 +308,6 @@ public class EditMyImageActivity extends Activity {
 		protected Boolean doInBackground(String... params) {
 			// TODO Auto-generated method stub
 			Boolean isSendSuccess = false;
-			Log.i("aaa",params[0]);
 			isSendSuccess = ImageHandeller.uploadAvatar(params[0]);
 			return isSendSuccess;
 		}
