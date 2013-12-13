@@ -510,6 +510,14 @@ public class DBOperation {
 			PersonModel.phoneNumber = phoneNumber;
 		return result;
 	}
+
+	public static int updatePassword(String password)
+	{
+		int result = update("WUser","Password = '"+password+"'","UserId = "+ PersonModel.weibaoID);
+		if(result == 1)
+			PersonModel.password = password;
+		return result;
+	}
 	
 	public static int exchangeWeiJin(WeiJinEntity weijin)
 	{
