@@ -212,7 +212,7 @@ public class EditMyImageActivity extends Activity {
 		// ͼƬ�м����������յ�ʱ���
 		String timeStampString = new SimpleDateFormat("yyyyMMdd_HHmmss")
 				.format(new Date());
-		String imageFileName = JPEG_FILE_PREFIX + timeStampString + "_";
+		String imageFileName = JPEG_FILE_PREFIX +PersonModel.weibaoID+"_"+ timeStampString + "_";
 		File albumFile = getAlbumDir();
 		File imageFile = File.createTempFile(imageFileName, JPEG_FILE_SUFFIX,
 				albumFile);
