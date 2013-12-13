@@ -109,7 +109,9 @@
         </activity>
         
         <activity android:label="个人信息" android:name="com.example.me.profile4thTabActivity"></activity>
-        <activity android:name="com.example.me.settings4thTabActivity" android:label="设置"></activity>
+        <activity android:name="com.example.me.settings4thTabActivity" android:label="设置"
+            
+             ></activity>
         <activity android:name="com.example.me.bill4thTabActivity" android:label="我的账单"></activity>
         <activity android:name="com.example.AccountActivities.EditMyImageActivity" android:label="我的头像"></activity>
         <activity android:name="com.example.EditProfileActivities.EditDistrictActivity" android:label="选择地区"></activity>
@@ -122,6 +124,8 @@
         <activity android:name="com.example.find.ShowMcPrefInfoActivity"></activity>
         <activity android:name="com.example.find.NotificationActivity"></activity>
         <activity android:name="com.example.find.ShowMcPrefListActivity"></activity>
+        <activity android:name="com.example.AccountActivities.changePasswordActivity" 
+            android:label="修改密码"></activity>
         
     </application>
     

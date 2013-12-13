@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.AccountActivities.EditMyImageActivity;
 import com.example.AccountActivities.MyAccountActivity;
 import com.example.AccountActivities.ShowBitmapCardActivity;
+import com.example.AccountActivities.changePasswordActivity;
 import com.example.EditProfileActivities.EditDistrictActivity;
 import com.example.connectwebservice.DBOperation;
 import com.example.connectwebservice.ImageHandeller;
@@ -40,6 +41,7 @@ public class profile4thTabActivity extends Activity implements OnClickListener{
 	private Intent cardIntent;
 	private Intent districtIntent;
 	private Intent accountIntent;
+	private Intent changePasswodIntent;
 	private ViewGroup expandView = null;
 	private ImageView avatarImageView;
 	private ProgressBar myProgressBar;
@@ -102,6 +104,7 @@ public class profile4thTabActivity extends Activity implements OnClickListener{
 				EditDistrictActivity.class);
 		accountIntent = new Intent(profile4thTabActivity.this,
 				MyAccountActivity.class);
+		changePasswodIntent = new Intent(profile4thTabActivity.this,changePasswordActivity.class);
 		
 	}
 	public String closeTextView(){
@@ -208,6 +211,7 @@ public class profile4thTabActivity extends Activity implements OnClickListener{
 			startActivity(cardIntent);
 			break;
 		case R.id.row_password:
+			startActivity(changePasswodIntent);
 			break;
 		}
 	}

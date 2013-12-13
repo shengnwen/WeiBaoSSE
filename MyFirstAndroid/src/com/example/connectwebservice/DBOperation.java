@@ -18,7 +18,7 @@ import org.ksoap2.transport.HttpTransportSE;
 import org.ksoap2.transport.KeepAliveHttpsTransportSE;
 
 public class DBOperation {
-\\github
+
 	private static String URL ="http://hyacinth02070.oicp.net/WebService1.asmx"; 
     private static String NAMESPACE ="http://tempuri.org/";
     private static String METHOD_NAME; 
