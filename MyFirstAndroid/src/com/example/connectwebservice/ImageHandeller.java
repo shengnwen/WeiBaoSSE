@@ -86,14 +86,18 @@ public class ImageHandeller {
 		METHOD_NAME = "upload";
 		SOAP_ACTION = NAMESPACE + METHOD_NAME;
 		try{
-			FileInputStream fis = new FileInputStream(url);  
+		/*	FileInputStream fis = new FileInputStream(url);  */
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();  
-			byte[] buffer = new byte[1024];  
+			//添加压缩图片内容
+			Bitmap bm = BitmapFactory.decodeFile(url);
+			bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+			//
+/*			byte[] buffer = new byte[1024];  
 			int count = 0;  
 			while((count = fis.read(buffer)) >= 0){  
 				baos.write(buffer, 0, count);  
 			}  
-			fis.close(); 
+			fis.close(); */
 			String uploadBuffer = new String(Base64.encode(baos.toByteArray()));  //进行Base64编码  
 			SoapObject rpc =new SoapObject(NAMESPACE,METHOD_NAME);
 			String[] temp = url.split("/");

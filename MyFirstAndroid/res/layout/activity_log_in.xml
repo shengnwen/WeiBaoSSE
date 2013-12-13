@@ -53,12 +53,12 @@
         android:gravity="center_vertical"
         android:id="@+id/radio_rem_key" 
         android:layout_width="wrap_content" 
-        android:text="@string/rem_key"
+        android:text="记住我"
         android:textColor="#173954"
         android:layout_height="wrap_content" 
         android:checked="false"
         android:layout_marginRight="15dp"
-        android:button="@drawable/checkbox_true"
+        android:button="@drawable/checkbox_false"
         android:onClick="RemKey"
         />
         

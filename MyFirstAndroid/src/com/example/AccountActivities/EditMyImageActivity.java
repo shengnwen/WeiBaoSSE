@@ -225,29 +225,7 @@ public class EditMyImageActivity extends Activity {
 		return file;
 	}
 
-//	private void setPic() {
-//		int targetW = mImageView.getWidth();
-//		int targetH = mImageView.getHeight();
-//		Options bmOptions = new Options();
-//		bmOptions.inJustDecodeBounds = true;
-//		BitmapFactory.decodeFile(mCurrentPhotoPathString, bmOptions);
-//		int photoW = bmOptions.outWidth;
-//		int photoH = bmOptions.outHeight;
-//
-//		int scaleFactor = 1;
-//		if ((targetH > 0) || (targetH > 0)) {
-//			scaleFactor = Math.min(photoW / targetW, photoH / targetH);
-//		}
-//		bmOptions.inJustDecodeBounds = false;
-//		bmOptions.inSampleSize = scaleFactor;
-//		bmOptions.inPurgeable = true;
-//
-//		Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPathString,
-//				bmOptions);
-//		mImageView.setImageBitmap(bitmap);
-//	}
-//
-	// ý��ɨ����ɨ��file�����file��ý����ݿ���
+
 	private void galleryAddPic() {
 		Intent mediaScanIntent = new Intent(
 				"android.intent.action.MEDIA_SCANNER_SCAN_FILE");
@@ -279,8 +257,7 @@ public class EditMyImageActivity extends Activity {
 
 		startActivityForResult(takePictureIntent, requestCode);
 	}
-
-	// �����ͼƬ
+	//压缩大图片并上传头像
 	private void handleBigCameraPhoto() {
 		if (mCurrentPhotoPathString != null) {
 			galleryAddPic();
