@@ -495,14 +495,6 @@ public class DBOperation {
 		return result;
 	}
 	
-	public static int updatePersonAvatar(String url)
-	{
-		int result = update("WUser","Avatar = '"+url+"'","UserId = "+ PersonModel.weibaoID);
-		if(result ==1 )
-    		PersonModel.avatarLocalPathString = url;
-		return result;
-	}
-	
 	public static int updatePersonPhone(String phoneNumber)
 	{
 		int result = update("WUser","Telephone = '"+phoneNumber+"'","UserId = "+ PersonModel.weibaoID);

@@ -104,6 +104,7 @@ public class ImageHandeller {
 			String fileName = temp[temp.length - 1];
 			rpc.addProperty("fileName",fileName);
         	rpc.addProperty("image",uploadBuffer);
+        	rpc.addProperty("userId",PersonModel.weibaoID);
         	SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         	envelope.bodyOut = rpc;
         	envelope.dotNet = true;
@@ -114,7 +115,7 @@ public class ImageHandeller {
         	if(Boolean.valueOf(soapObject.getProperty(0).toString()))
         	{
         		String fileUrl = "F:/WeiBao/"+convertUrlToFileName(url);
-        		DBOperation.updatePersonAvatar(fileUrl);
+        		PersonModel.avatarLocalPathString = fileUrl;
         		Bitmap avatar = BitmapFactory.decodeFile(url);
         		fileCache.saveBitmap(avatar, fileUrl);
         		memoryCache.addBitmapToCache(fileUrl, avatar);
