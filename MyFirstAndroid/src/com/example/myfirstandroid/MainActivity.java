@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +14,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -80,6 +83,31 @@ public final class MainActivity extends FragmentActivity implements TabHost.OnTa
         }
  
     }
+    @Override
+	public boolean dispatchKeyEvent(KeyEvent event) {
+		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK
+				&& event.getAction() != 1) {
+			exit();
+			return true;
+		}
+
+		return super.dispatchKeyEvent(event);
+	}
+    private void exit() {
+		new AlertDialog.Builder(MainActivity.this)
+				.setMessage(R.string.exit_confirm)
+				.setPositiveButton(R.string.button_ok,
+						new DialogInterface.OnClickListener() {
+
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+								finish();
+								android.os.Process
+										.killProcess(android.os.Process.myPid());
+							}
+						}).setNegativeButton(R.string.button_cancel, null)
+				.show();
+	}
     
     /** (non-Javadoc)
      * @see android.support.v4.app.FragmentActivity#onCreate(android.os.Bundle)

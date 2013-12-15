@@ -17,6 +17,7 @@
     <string name="action_login">登陆</string>
     <string name="title_activity_weibao">WeibaoActivity</string>
     <string name="title_activity_sign_up">注册</string>
+    <string name="exit_confirm">确认退出微宝吗？</string>
     <string name="get_confirm_key_button">免费获取验证码</string>
     <string name="edit_phone_num">请输入您的手机号码</string>
     <string name="edit_email">请输入您的邮箱地址</string>
