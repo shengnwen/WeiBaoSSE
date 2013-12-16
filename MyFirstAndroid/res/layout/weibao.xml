@@ -15,7 +15,7 @@
     		android:layout_height="wrap_content"
     		android:orientation="horizontal"
     		android:gravity="center">
-    		<ImageView
+    		<com.example.myfirstandroid.ProfileImageView
     		    android:id="@+id/user_image1"
     		    android:layout_width="50dp"
     		    android:layout_height="50dp"

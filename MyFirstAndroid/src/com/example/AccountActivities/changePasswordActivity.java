@@ -29,7 +29,7 @@ public class changePasswordActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_change_password);
+		setContentView(R.layout.profile_edit_password);
 		findAllViews();
 		backToMenuIntent = new Intent(this,profile4thTabActivity.class);
 		setAllListeners();

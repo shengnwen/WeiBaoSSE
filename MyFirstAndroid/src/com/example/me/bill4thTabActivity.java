@@ -160,15 +160,15 @@ public class bill4thTabActivity extends Activity {
 				public void run() {
 					if (result == null) {
 						Toast.makeText(getApplicationContext(), "网络连接失败",
-								Toast.LENGTH_LONG).show();
+								Toast.LENGTH_SHORT).show();
 					} else if (result.size() == 0) {
 						billList.clear();
 						adapter.notifyDataSetChanged();
 						Toast.makeText(getApplicationContext(), "您目前还没有账单!",
-								Toast.LENGTH_LONG).show();
+								Toast.LENGTH_SHORT).show();
 					} else {
 						Toast.makeText(getApplicationContext(),
-								"共有" + result.size() + "条账单信息", Toast.LENGTH_LONG)
+								"共有" + result.size() + "条账单信息", Toast.LENGTH_SHORT)
 								.show();
 						billList.clear();
 						for (WeiJinEntity it : result) {
@@ -218,11 +218,11 @@ public class bill4thTabActivity extends Activity {
 			}
 			else if(Result == 2) {
 				Toast.makeText(getApplication(), "该条微金已兑换，无法再次兑换",
-						Toast.LENGTH_LONG).show();
+						Toast.LENGTH_SHORT).show();
 			}
 			else {
 				Toast.makeText(getApplication(), "兑换失败，请检查网络连接",
-						Toast.LENGTH_LONG).show();
+						Toast.LENGTH_SHORT).show();
 			}
 		}
 	}

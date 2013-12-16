@@ -111,7 +111,7 @@ public class McNearbyActivity extends Activity {
 			longitude = location.getLongitude();
 		} else {
 			Toast.makeText(getApplicationContext(), "位置获取失败，请检查GPS或网络连接是否正常",
-					Toast.LENGTH_LONG).show();
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -261,11 +261,11 @@ public class McNearbyActivity extends Activity {
 		public void onGetPoiResult(MKPoiResult res, int type, int error) {
 			if (error == MKEvent.ERROR_RESULT_NOT_FOUND) {
 				Toast.makeText(getApplicationContext(), "抱歉，未找到结果",
-						Toast.LENGTH_LONG).show();
+						Toast.LENGTH_SHORT).show();
 				return;
 			} else if (error != 0 || res == null) {
 				Toast.makeText(getApplicationContext(), "搜索出错啦..",
-						Toast.LENGTH_LONG).show();
+						Toast.LENGTH_SHORT).show();
 				return;
 			}
 			PoiOverlay poiOverlay = new PoiOverlay(McNearbyActivity.this,

@@ -3,19 +3,26 @@ package com.example.myfirstandroid;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TabHost;
+import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public final class FindPasswordActivity extends Activity implements TabHost.OnTabChangeListener{
+public final class FindPasswordActivity extends Activity{
 
 	private TabHost mTabHost;
+	private Button submit;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_find_password);
 		initialiseTabHost();
+		submit = (Button)findViewById(R.id.submit);
 	}
 
 	@Override
@@ -38,15 +45,22 @@ public final class FindPasswordActivity extends Activity implements TabHost.OnTa
         tv.setTextSize(17);
         // Default to first tab
         //this.onTabChanged("Tab1");
-        //
+        mTabHost.setOnTabChangedListener(new OnTabChangeListener() {
+
+            @Override
+            public void onTabChanged(String tab) {
+            	Toast.makeText(getApplicationContext(), "tab changed",
+        				Toast.LENGTH_SHORT).show();
+        		if(tab.equals("tab2")){
+        			submit.setText("发送验证邮件");
+        		}else{
+        			submit.setText("提交");
+        		}
+            }
+        });
     }
  
-    
-    public void onTabChanged(String tag) {
-        //TabInfo newTab = this.mapTabInfo.get(tag);
-        int pos = this.mTabHost.getCurrentTab();
-        
-    }
+   
     
     public void Configure(View view){
     	Intent intent = new Intent(this, LogInActivity.class);

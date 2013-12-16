@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 public class MyAccountActivity extends Activity {
@@ -17,8 +18,8 @@ public class MyAccountActivity extends Activity {
 	private TextView weiBaoPhoneTextView;
 	private TextView weiBaoEmailIsBoundHint;
 	
-	private Button weiBaoEmailManageButton;
-	private Button weiBaoPhoneMangeButton;
+	private TableRow weiBaoEmailManageButton;
+	private TableRow weiBaoPhoneMangeButton;
 	
 	private Intent boundEmailIntent;
 
@@ -42,8 +43,8 @@ public class MyAccountActivity extends Activity {
 		weiBaoEmailIsBoundHint = (TextView) findViewById(R.id.weiBaoAccountIsEmailBoundedHint);
 		weiBaoIDTextView = (TextView) findViewById(R.id.weiBaoAccountIDTextView);
 		weiBaoPhoneTextView = (TextView) findViewById(R.id.weiBaoAccountPhoneTextView);
-		weiBaoEmailManageButton = (Button)findViewById(R.id.emailManageButton);
-		weiBaoPhoneMangeButton = (Button)findViewById(R.id.phoneManageButton);
+		weiBaoEmailManageButton = (TableRow)findViewById(R.id.tableRow3);
+		weiBaoPhoneMangeButton = (TableRow)findViewById(R.id.tableRow2);
 	}
 
 	private void setListeners() {

@@ -90,7 +90,7 @@ public final class LogInActivity extends Activity {
 		if (useraccount.getText().length() == 0
 				|| userpassword.getText().length() == 0) {
 			Toast.makeText(getApplicationContext(), "邮箱名和密码不能为空",
-					Toast.LENGTH_LONG).show();
+					Toast.LENGTH_SHORT).show();
 		} else {
 			String account = useraccount.getText().toString();
 			String password = userpassword.getText().toString();
@@ -186,15 +186,15 @@ public final class LogInActivity extends Activity {
 			        .commit();
 					startActivity(intent);
 				} else {
-					Toast.makeText(getApplication(), "密码错误！", Toast.LENGTH_LONG)
+					Toast.makeText(getApplication(), "密码错误！", Toast.LENGTH_SHORT)
 							.show();
 				}
 			} else if (Result == 0) {
-				Toast.makeText(getApplication(), "账户名不存在!", Toast.LENGTH_LONG)
+				Toast.makeText(getApplication(), "账户名不存在!", Toast.LENGTH_SHORT)
 						.show();
 			} else {
 				Toast.makeText(getApplication(), "登陆失败,请检查网络连接",
-						Toast.LENGTH_LONG).show();
+						Toast.LENGTH_SHORT).show();
 			}
 			login_btn.setEnabled(true);
 		}

@@ -33,13 +33,9 @@ public class boundEmailActivity extends Activity {
 	private Button sendEmailOrDisboundButton;
 	private TextView emailHintTextView;
 	private EditText emailEditText;
-
+	private boolean canBeEdit;
 	private Intent backToAccountMenuIntent;
 	
-	
-	
-
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -135,12 +131,13 @@ public class boundEmailActivity extends Activity {
 				} else if (PersonModel.isEmailChecked == false) {
 
 					// 有email但未进行验证
-					if (saveEditButton.getText().equals("编辑")) {
+					if (canBeEdit) {
 						emailEditText.setFocusableInTouchMode(true);
 						emailEditText.setFocusable(true);
 						emailEditText.requestFocus();
 						sendEmailOrDisboundButton.setVisibility(Button.GONE);
-						saveEditButton.setText("保存");
+						saveEditButton.setBackgroundResource(R.color.me_info_confirm_btn);
+						canBeEdit = false;
 					} else {
 						// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 						if(!checkEmailFormat(emailEditText.getText().toString().trim())){
@@ -182,11 +179,13 @@ public class boundEmailActivity extends Activity {
 	private void setInfo() {
 		// 预先根据账号邮箱的三种状态进行处理
 		if (PersonModel.email == null || PersonModel.email.equals("")) {
-			saveEditButton.setText("保存");
+			//saveEditButton.setText("保存");
+			saveEditButton.setBackgroundResource(R.color.me_info_confirm_btn);
 			emailEditText.setText("");
 			emailEditText.setFocusable(true);
 			emailHintTextView.setText("如果你更改了邮件地址，你需要对邮件地址重新进行验证。");
 			sendEmailOrDisboundButton.setVisibility(View.GONE);
+			canBeEdit = false;
 		} else if (PersonModel.isEmailChecked == false) {
 			emailEditText.setText(PersonModel.email);
 			emailEditText.setFocusable(false);
@@ -194,7 +193,8 @@ public class boundEmailActivity extends Activity {
 			Log.i("aaa", "aaa");
 			sendEmailOrDisboundButton.setVisibility(View.VISIBLE);
 			sendEmailOrDisboundButton.setText("重新发送验证邮件");
-			saveEditButton.setText("编辑");
+			saveEditButton.setBackgroundResource(R.color.edit_btn);
+			canBeEdit = true;
 		} else {
 			emailEditText.setText(PersonModel.email);
 			emailEditText.setFocusable(false);
@@ -202,7 +202,7 @@ public class boundEmailActivity extends Activity {
 			sendEmailOrDisboundButton.setVisibility(View.VISIBLE);
 			sendEmailOrDisboundButton.setText("解除绑定");
 			saveEditButton.setVisibility(View.GONE);
-
+			canBeEdit = false;
 		}
 
 	}

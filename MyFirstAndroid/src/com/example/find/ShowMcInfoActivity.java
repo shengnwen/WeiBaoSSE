@@ -153,15 +153,15 @@ public class ShowMcInfoActivity extends Activity {
 				btn.setSelected(!btn.isSelected());
 				if (btn.isSelected()) {
 					Toast.makeText(getApplication(), "已订阅，您将接收到该商户的优惠信息哦！",
-							Toast.LENGTH_LONG).show();
+							Toast.LENGTH_SHORT).show();
 				} else {
 					Toast.makeText(getApplication(), "已取消订阅，您将无法接收该商户的优惠信息。",
-							Toast.LENGTH_LONG).show();
+							Toast.LENGTH_SHORT).show();
 				}
 				
 			} else {
 				Toast.makeText(getApplication(), "请求失败，请检查网络连接",
-						Toast.LENGTH_LONG).show();
+						Toast.LENGTH_SHORT).show();
 			}
 		}
 	}

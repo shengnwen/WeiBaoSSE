@@ -28,7 +28,7 @@
     		android:layout_height="wrap_content"
     		android:orientation="vertical"
     		android:gravity="center">
-    		<ImageView
+    		<com.example.myfirstandroid.ProfileImageView
     		    android:id="@+id/user_image"
     		    android:layout_width="50dp"
     		    android:layout_height="50dp"

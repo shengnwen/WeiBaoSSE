@@ -194,7 +194,8 @@
             android:name="com.example.AccountActivities.ShowBitmapCardActivity"
             android:label="二维码名片" >
         </activity>
-        <activity android:name="com.example.AccountActivities.boundEmailActivity" >
+        <activity android:name="com.example.AccountActivities.boundEmailActivity" 
+            android:label="绑定邮箱">
         </activity>
         <activity android:name="com.example.find.ShowMcPrefInfoActivity" >
         </activity>

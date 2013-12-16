@@ -85,13 +85,13 @@ public class ShowMcPrefListActivity extends Activity{
 				public void run() {
 					if (result == null) {
 						Toast.makeText(getApplicationContext(),
-								"网络连接失败", Toast.LENGTH_LONG).show();
+								"网络连接失败", Toast.LENGTH_SHORT).show();
 					} else if (result.size() == 0) {
 						Toast.makeText(getApplicationContext(),
-								"该商户暂无优惠信息", Toast.LENGTH_LONG).show();
+								"该商户暂无优惠信息", Toast.LENGTH_SHORT).show();
 					} else {
 						Toast.makeText(getApplicationContext(),
-								"找到该商户的" + result.size() + "条优惠信息", Toast.LENGTH_LONG)
+								"找到该商户的" + result.size() + "条优惠信息", Toast.LENGTH_SHORT)
 								.show();
 						allPrefInfo.clear();
 						for (McPreferentialItem it : result) {
