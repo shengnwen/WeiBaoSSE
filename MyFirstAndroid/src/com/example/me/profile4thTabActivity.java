@@ -252,9 +252,9 @@ public class profile4thTabActivity extends Activity implements OnClickListener{
 	        protected void onPostExecute(Object result){
 				myProgressBar.setVisibility(ProgressBar.GONE);
 				if(Result==1){
-					Toast.makeText(getApplication(), "保存成功", Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplication(), "保存成功", Toast.LENGTH_SHORT).show();
 				}else{
-					Toast.makeText(getApplication(), "请求失败，请检查网络连接", Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplication(), "请求失败，请检查网络连接", Toast.LENGTH_SHORT).show();
 				}
 		    }
 	    }

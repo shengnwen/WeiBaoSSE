@@ -164,17 +164,17 @@ public final class WeibaoFragment extends Fragment implements OnClickListener {
 					Boolean isBeenOn = sharedPref.getBoolean(settings4thTabActivity.IS_BEEP_ON, true);
 					if (result == null) {
 						Toast.makeText(getActivity().getApplicationContext(),
-								"网络连接失败", Toast.LENGTH_LONG).show();
+								"网络连接失败", Toast.LENGTH_SHORT).show();
 						if(isBeenOn)
 							SoundModel.playVibrate(getActivity(), 300);
 					} else if (result.size() == 0) {
 						Toast.makeText(getActivity().getApplicationContext(),
-								"您目前没有任何优惠信息哦，快去订阅吧！", Toast.LENGTH_LONG).show();
+								"您目前没有任何优惠信息哦，快去订阅吧！", Toast.LENGTH_SHORT).show();
 						if(isBeenOn)
 							SoundModel.playVibrate(getActivity(), 300);
 					} else {
 						Toast.makeText(getActivity().getApplicationContext(),
-								"您现在收到" + result.size() + "条优惠哦！", Toast.LENGTH_LONG)
+								"您现在收到" + result.size() + "条优惠哦！", Toast.LENGTH_SHORT)
 								.show();
 						//添加震动
 						if(isBeenOn)

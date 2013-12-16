@@ -536,6 +536,17 @@ public class DBOperation {
 		}
 		return k;
 	}
+	
+	public static void checkEmailState()
+	{
+		ArrayList<ArrayList<String>> emailChecked = new ArrayList<ArrayList<String>>();
+		emailChecked = select ( "WUser", "EmailChecked", "Where UserId = "+PersonModel.weibaoID);
+		if(emailChecked.get(0).get(0).equals("true"))
+           	PersonModel.isEmailChecked = true;
+        else 
+          	PersonModel.isEmailChecked = false;
+	}
+	
 	private static float subFloat(float f,int lenght)
 	{
 	String fStr=String.valueOf(f);
@@ -544,5 +555,4 @@ public class DBOperation {
 	float returnf=(Float.valueOf(returnStr)).floatValue();
 	return returnf;
 	}
-
 }

@@ -30,7 +30,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp">
 
-            <ImageView
+            <com.example.myfirstandroid.ProfileImageView
                 android:id="@+id/imageSelfImage4thTab"
                 android:layout_width="50dp"
                 android:layout_height="50dp"

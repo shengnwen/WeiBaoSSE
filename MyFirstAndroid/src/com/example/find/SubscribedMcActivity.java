@@ -111,7 +111,7 @@ public final class SubscribedMcActivity extends McActivity {
 				mcInfoList.remove(pos);
 				adapter.notifyDataSetChanged();
 			}else{
-				Toast.makeText(getApplication(), "请求失败，请检查网络连接", Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplication(), "请求失败，请检查网络连接", Toast.LENGTH_SHORT).show();
 			}
 	    }
 	}

@@ -168,10 +168,10 @@ public final class ScanFragment extends Fragment implements OnClickListener{
 		protected void onPostExecute(Object result) {
 			if (Result == 1) {
 				Toast.makeText(getActivity(), "已加入我的账单！",
-						Toast.LENGTH_LONG).show();
+						Toast.LENGTH_SHORT).show();
 			} else {
 				Toast.makeText(getActivity(), "生成账单失败，该条微金已添加，或请检查您的网络",
-						Toast.LENGTH_LONG).show();
+						Toast.LENGTH_SHORT).show();
 			}
 		}
 	}
