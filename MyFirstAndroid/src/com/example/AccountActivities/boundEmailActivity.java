@@ -8,6 +8,7 @@ import javax.mail.internet.AddressException;
 
 import com.example.connectwebservice.DBOperation;
 import com.example.email.EmailSender;
+import com.example.email.UrlInEmail;
 import com.example.entity.PersonModel;
 import com.example.myfirstandroid.R;
 
@@ -58,7 +59,7 @@ public class boundEmailActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onResume();
 		setInfo();
-
+		
 	}
 	
 	//checkEmailFormat检查输入的邮箱string是否符合邮箱的格式
@@ -256,7 +257,7 @@ public class boundEmailActivity extends Activity {
 			if(DBOperation.updatePersonEmail(params[0])!=1){
 				return false;
 			}
-			emailSender.setContent("test success!");// 填入URL
+			emailSender.setContent(UrlInEmail.confrimUrl());// 填入URL
 			emailSender.sendEmail();
 			isSendSuccess = true;
 			return isSendSuccess;
