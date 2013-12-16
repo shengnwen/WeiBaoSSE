@@ -49,8 +49,6 @@ public final class FindPasswordActivity extends Activity{
 
             @Override
             public void onTabChanged(String tab) {
-            	Toast.makeText(getApplicationContext(), "tab changed",
-        				Toast.LENGTH_SHORT).show();
         		if(tab.equals("tab2")){
         			submit.setText("发送验证邮件");
         		}else{

@@ -87,11 +87,7 @@
         </activity>
         <activity
             android:name="com.example.myfirstandroid.DisplayMessageActivity"
-            android:label="@string/title_activity_display_message"
-            android:parentActivityName="com.example.myfirstandroid.LogInActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.myfirstandroid.MainActivity" />
+            >
         </activity>
         <activity
             android:name="com.baidu.mapapi.search.PlaceCaterActivity"
@@ -105,7 +101,6 @@
         <activity
             android:name="MainActivity"
             android:label="@string/title_activity_main"
-            android:parentActivityName="com.example.myfirstandroid.LogInActivity"
             android:theme="@style/NoSlideTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
