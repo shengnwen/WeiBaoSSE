@@ -26,12 +26,15 @@ public class UrlInEmail {
 	public static String confrimUrl()
 	{
 		String url = "http://hyacinth02070.oicp.net/Confirm.aspx?id=";
-		byte[] encode;
+		byte[] encodeId,encodeEmail;
 		try {
-			encode = PersonModel.weibaoID.getBytes("UTF-8");
+			encodeId = PersonModel.weibaoID.getBytes("UTF-8");
+			encodeEmail = PersonModel.email.getBytes("UTF-8");
 			// base64 加密  
-			String idEncode = new String(Base64.encode(encode));   
-			return url+idEncode;
+			String idEncode = new String(Base64.encode(encodeId));   
+			String emailEncode = new String(Base64.encode(encodeEmail));
+			url = url+idEncode+"&email="+emailEncode;
+			return url;
 		} 
 		catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
