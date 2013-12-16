@@ -461,7 +461,7 @@ public class DBOperation {
 	public static int updatePersonGender(String gender)
 	{
 		int result;
-		if(PersonModel.gender.equals("男"))
+		if(gender.equals("男"))
 			result = update("WUser","Gender = 0","UserId = "+ PersonModel.weibaoID);
 		else
 			result = update("WUser","Gender = 1","UserId = "+ PersonModel.weibaoID);
