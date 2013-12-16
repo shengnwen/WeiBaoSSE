@@ -461,7 +461,7 @@ public class DBOperation {
 	public static int updatePersonGender(String gender)
 	{
 		int result;
-		if(PersonModel.gender.equals("男"))
+		if(gender.equals("男"))
 			result = update("WUser","Gender = 0","UserId = "+ PersonModel.weibaoID);
 		else
 			result = update("WUser","Gender = 1","UserId = "+ PersonModel.weibaoID);
@@ -536,6 +536,17 @@ public class DBOperation {
 		}
 		return k;
 	}
+	
+	public static void checkEmailState()
+	{
+		ArrayList<ArrayList<String>> emailChecked = new ArrayList<ArrayList<String>>();
+		emailChecked = select ( "WUser", "EmailChecked", "Where UserId = "+PersonModel.weibaoID);
+		if(emailChecked.get(0).get(0).equals("true"))
+           	PersonModel.isEmailChecked = true;
+        else 
+          	PersonModel.isEmailChecked = false;
+	}
+	
 	private static float subFloat(float f,int lenght)
 	{
 	String fStr=String.valueOf(f);
@@ -544,5 +555,4 @@ public class DBOperation {
 	float returnf=(Float.valueOf(returnStr)).floatValue();
 	return returnf;
 	}
-
 }
